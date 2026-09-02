@@ -131,7 +131,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="relative z-20 text-sm text-slate-500 font-medium tracking-wide py-2">
-        © 2026 BytBloom
+        © 2026 ByteBloom
       </footer>
     </div>
   );
