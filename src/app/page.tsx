@@ -1,22 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import ThreeBackground from "@/components/ThreeBackground";
 
 export default function Home() {
-  const [copied, setCopied] = useState(false);
-
-  const installCommands = `git clone https://github.com/tharananejan/sketch2cad.git
-cd sketch2cad
-pip install -r requirements.txt
-python main.py`;
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(installCommands);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
     <div className="relative h-screen w-screen flex flex-col justify-between items-center bg-[#050811] px-12 py-6 overflow-hidden select-none">
       {/* 3D Wireframe Animated Background Canvas */}
@@ -64,7 +50,7 @@ python main.py`;
             </a>
 
             <span className="text-sm text-slate-400 font-medium tracking-wide">
-              Lite Installer • Requires Python
+              Lite Installer • Requires FreeCAD
             </span>
           </div>
 
@@ -72,66 +58,71 @@ python main.py`;
 
         {/* RIGHT SIDE: Installation Steps */}
         <div className="w-1/2 flex flex-col justify-center pl-4">
-          <div className="w-full text-left rounded-2xl code-block-container p-6 font-mono text-sm relative group overflow-hidden shadow-2xl">
-            <div className="flex justify-between items-center pb-4 mb-4 border-b border-slate-800/80">
+          <div className="w-full text-left rounded-2xl code-block-container p-6 relative group overflow-hidden shadow-2xl">
+            <div className="flex items-center pb-4 mb-5 border-b border-slate-800/80">
               <span className="text-xs text-slate-400 font-sans font-semibold tracking-wider uppercase flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                Installation Steps
+                Installation Guide
               </span>
-              <button
-                onClick={copyToClipboard}
-                className="text-xs text-slate-400 hover:text-cyan-400 transition-colors font-sans px-3 py-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-800 border border-slate-700/50 flex items-center gap-2 cursor-pointer"
-              >
-                {copied ? (
-                  <>
-                    <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-cyan-400">Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 012-2v-8a2 2 0 01-2-2h-8a2 2 0 01-2 2v8a2 2 0 012 2z" />
-                    </svg>
-                    <span>Copy</span>
-                  </>
-                )}
-              </button>
             </div>
 
-            <div className="space-y-4 text-slate-200 leading-relaxed">
-              <div>
-                <span className="text-slate-500 select-none text-xs"># Clone the repository</span>
-                <div className="text-cyan-300 font-semibold flex items-center gap-2 mt-1">
-                  <span className="text-slate-600 select-none">$</span>
-                  <code>git clone https://github.com/tharananejan/sketch2cad.git</code>
+            <div className="space-y-5 text-slate-200">
+              {/* Step 1 */}
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-cyan-950/80 border border-cyan-500/40 flex items-center justify-center text-cyan-400 font-bold text-xs shadow-[0_0_12px_rgba(0,242,254,0.15)] mt-0.5">
+                  01
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-semibold text-white text-base flex items-center gap-2">
+                    Download FreeCAD
+                  </h3>
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    First, download and install <strong className="text-slate-200">FreeCAD</strong> on your computer.
+                  </p>
+                  <a
+                    href="https://www.freecad.org/downloads.php"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-cyan-400 hover:text-cyan-300 font-medium underline underline-offset-4 pt-1 transition-colors"
+                  >
+                    <span>Download FreeCAD Official</span>
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
                 </div>
               </div>
 
-              <div>
-                <span className="text-slate-500 select-none text-xs"># Navigate to the folder</span>
-                <div className="text-cyan-300 font-semibold flex items-center gap-2 mt-1">
-                  <span className="text-slate-600 select-none">$</span>
-                  <code>cd sketch2cad</code>
+              {/* Step 2 */}
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-cyan-950/80 border border-cyan-500/40 flex items-center justify-center text-cyan-400 font-bold text-xs shadow-[0_0_12px_rgba(0,242,254,0.15)] mt-0.5">
+                  02
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-semibold text-white text-base">
+                    Download Freegen
+                  </h3>
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    After that, download <strong className="text-slate-200">Freegen</strong> using the <span className="text-cyan-300 font-semibold">Download</span> button on this page.
+                  </p>
                 </div>
               </div>
 
-              <div>
-                <span className="text-slate-500 select-none text-xs"># Install requirements</span>
-                <div className="text-cyan-300 font-semibold flex items-center gap-2 mt-1">
-                  <span className="text-slate-600 select-none">$</span>
-                  <code>pip install -r requirements.txt</code>
+              {/* Step 3 */}
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-cyan-950/80 border border-cyan-500/40 flex items-center justify-center text-cyan-400 font-bold text-xs shadow-[0_0_12px_rgba(0,242,254,0.15)] mt-0.5">
+                  03
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-semibold text-white text-base">
+                    Click & Launch Freegen
+                  </h3>
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    Extract the downloaded file and click <strong className="text-slate-200">Freegen</strong> to launch and start generating 3D models.
+                  </p>
                 </div>
               </div>
 
-              <div>
-                <span className="text-slate-500 select-none text-xs"># Run the application</span>
-                <div className="text-cyan-300 font-semibold flex items-center gap-2 mt-1">
-                  <span className="text-slate-600 select-none">$</span>
-                  <code>python main.py</code>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -145,3 +136,4 @@ python main.py`;
     </div>
   );
 }
+
