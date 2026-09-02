@@ -29,8 +29,8 @@ export default function Home() {
           {/* Download Button & Subtext */}
           <div className="flex flex-col items-center gap-3 pt-2">
             <a
-              href="/FreeGen-Lite.zip"
-              download="FreeGen-Lite.zip"
+              href="/FreeGen-Setup.exe"
+              download="FreeGen-Setup.exe"
               className="glow-button px-14 py-4 rounded-2xl font-bold text-slate-950 text-lg flex items-center gap-3 cursor-pointer shadow-2xl tracking-wide hover:scale-105 transition-all active:scale-95"
             >
               <svg
@@ -50,7 +50,7 @@ export default function Home() {
             </a>
 
             <span className="text-sm text-slate-400 font-medium tracking-wide">
-              Lite Installer • Requires FreeCAD
+              Windows Installer (.exe) • Requires FreeCAD
             </span>
           </div>
 
@@ -118,7 +118,7 @@ export default function Home() {
                     Click & Launch Freegen
                   </h3>
                   <p className="text-xs text-slate-400 leading-relaxed">
-                    Extract the downloaded file and click <strong className="text-slate-200">Freegen</strong> to launch and start generating 3D models.
+                    Run the downloaded installer and launch <strong className="text-slate-200">Freegen</strong> to start generating 3D models.
                   </p>
                 </div>
               </div>
